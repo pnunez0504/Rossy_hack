@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node (stray; not used by the toolkit)
+node_modules/
+
+# Captured attack evidence (binary frames) — keep the folder, not the dumps
+loot/*.raw
+loot/*.jpg
+loot/*.png
+
+# Local per-rover target overrides
+config/profile.yaml
+
+# OS / editor
+.DS_Store
+*.swp

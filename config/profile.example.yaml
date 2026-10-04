@@ -1,0 +1,28 @@
+# Rossy target profile — copy to profile.yaml and fill in once you know your rover.
+# Nothing here is required (the tool auto-discovers), but pinning values makes a
+# clean, repeatable demo and lets you override bad auto-guesses.
+
+rover:
+  name: Rossy
+  wifi_subnet: 192.168.4.0/24      # AP the rover/ESP32 joins; used by `recon`
+  esp32_ip: 192.168.4.1            # ESP32-S3 web-control host
+  web_port: 80
+  camera_port: 81                  # ESP32-CAM MJPEG default is a 2nd server on :81
+
+ros2:
+  domain_id: 0                     # ROS_DOMAIN_ID the micro-ROS agent uses
+  rosbridge: null                  # e.g. 192.168.4.2:9090 if you run rosbridge_server
+  # Pin topics here to override the classifier (leave null to auto-detect):
+  topics:
+    camera: /rover/camera/image_raw      # sensor_msgs/CompressedImage or Image
+    pir:    /rover/pir                    # std_msgs/Bool or sensor_msgs/Range
+    drive:  /cmd_vel                      # geometry_msgs/Twist
+  services:
+    shutdown: null                       # e.g. /rover/shutdown (std_srvs/Trigger)
+
+web:
+  # If you already know the Arduino control API, declare it to skip discovery:
+  drive_endpoint: null             # e.g. /cmd
+  drive_param: null                # e.g. dir
+  stop_endpoint: null              # e.g. /stop
+  shutdown_endpoint: null          # e.g. /off

@@ -1,0 +1,6 @@
+# Rossy exploit tool — standalone dependencies (no ROS2 install required).
+# rclpy is used automatically IF you source a ROS2 env; it is NOT pip-installable here.
+rich>=13.0            # colored CLI / tables / live output for demos
+requests>=2.31        # HTTP web-control discovery & injection
+roslibpy>=1.7         # rosbridge (websocket) backend
+PyYAML>=6.0           # target profiles
